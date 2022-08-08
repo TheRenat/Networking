@@ -7,13 +7,28 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+let jsonUrl = "https://api.agify.io/?name=bella"
 
+class ViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        guard let url = URL(string:  jsonUrl) else { return }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data else {
+                print(error?.localizedDescription ?? "No error description")
+                return
+            }
+            do {
+            let json = try JSONDecoder().decode(Model.self, from: data)
+                print(json.age)
+            } catch let error {
+                print(error)
+            }
+        }.resume()
+        
     }
-
-
 }
 
