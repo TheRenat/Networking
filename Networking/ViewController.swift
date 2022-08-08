@@ -7,7 +7,7 @@
 
 import UIKit
 
-let jsonUrl = "https://api.agify.io/?name=bella"
+let jsonUrl = "https://v2.jokeapi.dev/joke/Any?safe-mode"
 
 class ViewController: UIViewController {
     
@@ -22,8 +22,8 @@ class ViewController: UIViewController {
                 return
             }
             do {
-            let json = try JSONDecoder().decode(Model.self, from: data)
-                print(json.age)
+            let json = try JSONDecoder().decode(Joke.self, from: data)
+                print(json.flags)
             } catch let error {
                 print(error)
             }
