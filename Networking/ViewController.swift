@@ -7,9 +7,9 @@
 
 import UIKit
 
-let jsonUrl = "https://v2.jokeapi.dev/joke/Any?safe-mode"
-
 class ViewController: UIViewController {
+    
+    let jsonUrl = "https://v2.jokeapi.dev/joke/Any?safe-mode"
     
     override func viewDidLoad() {
         super.viewDidLoad()
